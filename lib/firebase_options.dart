@@ -50,19 +50,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyClx0Ex7FeTJnU0wvoGQju528FJFZLOSG8',
-    appId: '1:541840018291:android:cc2cf9eefbf3cdf4d81306',
-    messagingSenderId: '541840018291',
-    projectId: 'recepie-book-f9b67',
-    storageBucket: 'recepie-book-f9b67.firebasestorage.app',
+    apiKey: 'AIzaSyAdO77Pp_mS-86GI0TZzA_A_JTFtGj8v2c',
+    appId: '1:469160305622:android:fb99736a03564e2085ba77',
+    messagingSenderId: '469160305622',
+    projectId: 'flutter-pro-firebase-7702e',
+    storageBucket: 'flutter-pro-firebase-7702e.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAcvoxGsNotbHLS0u9JsaJdTOZ5pQbYu9Y',
-    appId: '1:541840018291:ios:0546a5e462fdfb62d81306',
-    messagingSenderId: '541840018291',
-    projectId: 'recepie-book-f9b67',
-    storageBucket: 'recepie-book-f9b67.firebasestorage.app',
+    apiKey: 'AIzaSyCO6elZjD6FZbunPNFWOU4z4Da87-K9k-g',
+    appId: '1:469160305622:ios:1dea6d66ca16fd9b85ba77',
+    messagingSenderId: '469160305622',
+    projectId: 'flutter-pro-firebase-7702e',
+    storageBucket: 'flutter-pro-firebase-7702e.firebasestorage.app',
     iosBundleId: 'com.example.flutterassignment',
   );
 

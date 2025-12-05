@@ -88,5 +88,112 @@ Future<void> insertDummyData() async {
 
   // 2. INSERT DUMMY RECIPES
   // --- Recipe 1: Spaghetti Bolognese ---
-  
+  final spaghettiId = await db.insertRecipe(
+    Recipe(
+      title: "Spaghetti Bolognese",
+      imageUrl: "https://images.pexels.com/photos/4819464/pexels-photo-4819464.jpeg",
+      steps: [],
+    ),
+  );
+
+  await db.insertStep(
+    RecipeStep(
+      ingredients: "Onions, Garlic, Carrots",
+      time: "10 min",
+      instruction: "Chop them finely.",
+    ),
+    spaghettiId,
+  );
+
+  await db.insertStep(
+    RecipeStep(
+      ingredients: "Beef, Olive oil",
+      time: "15 min",
+      instruction: "Cook until browned.",
+    ),
+    spaghettiId,
+  );
+
+  await db.insertStep(
+    RecipeStep(
+      ingredients: "Tomato paste, Spices, Salt",
+      time: "20 min",
+      instruction: "Mix with beef and simmer until sauce thickens.",
+    ),
+    spaghettiId,
+  );
+
+  // --- Recipe 2: Chicken Curry ---
+  final chickenCurryId = await db.insertRecipe(
+    Recipe(
+      title: "Chicken Curry",
+      imageUrl: "https://images.pexels.com/photos/1111317/pexels-photo-1111317.jpeg",
+      steps: [],
+    ),
+  );
+
+  await db.insertStep(
+    RecipeStep(
+      ingredients: "Chicken, Turmeric, Salt",
+      time: "15 min",
+      instruction: "Marinate the chicken with turmeric and salt.",
+    ),
+    chickenCurryId,
+  );
+
+  await db.insertStep(
+    RecipeStep(
+      ingredients: "Onions, Ginger, Garlic, Tomatoes",
+      time: "10 min",
+      instruction: "Sauté until golden and fragrant.",
+    ),
+    chickenCurryId,
+  );
+
+  await db.insertStep(
+    RecipeStep(
+      ingredients: "Spices, Coconut milk, Water",
+      time: "25 min",
+      instruction: "Add spices and coconut milk, simmer until chicken is cooked.",
+    ),
+    chickenCurryId,
+  );
+
+  // --- Recipe 3: Vegetable Stir-Fry ---
+  final stirFryId = await db.insertRecipe(
+    Recipe(
+      title: "Vegetable Stir-Fry",
+      imageUrl: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
+      steps: [],
+    ),
+  );
+
+  await db.insertStep(
+    RecipeStep(
+      ingredients: "Broccoli, Bell peppers, Carrots",
+      time: "5 min",
+      instruction: "Wash and chop vegetables into bite-sized pieces.",
+    ),
+    stirFryId,
+  );
+
+  await db.insertStep(
+    RecipeStep(
+      ingredients: "Garlic, Soy sauce, Olive oil",
+      time: "10 min",
+      instruction: "Heat oil, add garlic, then stir-fry vegetables quickly.",
+    ),
+    stirFryId,
+  );
+
+  await db.insertStep(
+    RecipeStep(
+      ingredients: "Sesame seeds, Green onions",
+      time: "2 min",
+      instruction: "Garnish with sesame seeds and green onions before serving.",
+    ),
+    stirFryId,
+  );
+
+  print("Dummy data inserted successfully!");
 }
