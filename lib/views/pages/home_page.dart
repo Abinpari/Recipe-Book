@@ -4,6 +4,7 @@ import '../../db/ingrdient_database.dart';
 import '../../models/recipes.dart';
 import '../../models/ingredients.dart';
 import 'package:flutterassignment/app/auth_service.dart';
+import 'recipe_detail_page.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -13,7 +14,43 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String? _userName;
+  List<Recipe> recipes = [];
+  List<Ingredient> ingredients = [];
+  // Example, you can fetch from user db or API
 
+  @override
+  void initState() {
+    super.initState();
+    _loadRecipes();
+    _loadIngredients();
+    _loadUserDetails();
+  }
+
+  Future<void> _loadUserDetails() async {
+    try {
+      final user = authServices.value.currentUser; // Firebase user
+      setState(() {
+        _userName = user?.displayName ?? "Guest User";
+      });
+    } catch (e) {
+      print('Error loading user details: $e');
+    }
+  }
+
+  Future<void> _loadRecipes() async {
+    final fetchedRecipes = await DatabaseHelper.instance.getRecipes();
+    setState(() {
+      recipes = fetchedRecipes;
+    });
+  }
+
+  Future<void> _loadIngredients() async {
+    final fetchedIngredients =
+        await IngredientDatabase.instance.readAllIngredients();
+    setState(() {
+      ingredients = fetchedIngredients;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -132,7 +169,28 @@ class _HomePageState extends State<HomePage> {
       return const Center(child: Text("No recipes available"));
     }
 
-  
+    return SizedBox(
+      height: 220,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: recipes.length,
+        itemBuilder: (context, index) {
+          final recipe = recipes[index];
+          return _buildRecipeCard(recipe);
+        },
+      ),
+    );
+  }
+Widget _buildRecipeCard(Recipe recipe) {
+  return GestureDetector(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => RecipeDetailPage(recipe: recipe),
+        ),
+      );
+    },
     child: Container(
       width: 180,
       margin: const EdgeInsets.only(right: 15),
@@ -203,7 +261,21 @@ class _HomePageState extends State<HomePage> {
   // ----------------------
   // DYNAMIC INGREDIENTS
   // ----------------------
- 
+  Widget _buildIngredientsList() {
+    if (ingredients.isEmpty) {
+      return const Center(child: Text("No ingredients available"));
+    }
+
+    return Column(
+      children:
+          ingredients.map((ingredient) {
+            return _buildIngredientItem(
+              ingredient.name,
+              ingredient.quantity ?? 'N/A',
+            );
+          }).toList(),
+    );
+  }
 
   Widget _buildIngredientItem(String name, String quantity) {
     return Container(

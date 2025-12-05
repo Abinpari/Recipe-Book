@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'register_page.dart';
+import 'package:flutterassignment/views/widget_tree.dart'; // for after login
 
 class LoginPage extends StatelessWidget {
   final Function(bool) toggleTheme;
@@ -15,7 +16,12 @@ class LoginPage extends StatelessWidget {
       );
 
       // ✅ Success → navigate to WidgetTree
-     
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => WidgetTree(toggleTheme: toggleTheme),
+        ),
+      );
     } on FirebaseAuthException catch (e) {
       // ✅ Show error from Firebase
       ScaffoldMessenger.of(context).showSnackBar(

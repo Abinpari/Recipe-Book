@@ -32,6 +32,8 @@ class RegisterPage extends StatelessWidget {
         );
         return;
       }
+
+      Navigator.pop(context); // back to login
     }
 
     return Scaffold(
