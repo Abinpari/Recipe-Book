@@ -50,19 +50,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAdO77Pp_mS-86GI0TZzA_A_JTFtGj8v2c',
-    appId: '1:469160305622:android:fb99736a03564e2085ba77',
-    messagingSenderId: '469160305622',
-    projectId: 'flutter-pro-firebase-7702e',
-    storageBucket: 'flutter-pro-firebase-7702e.firebasestorage.app',
+    apiKey: 'AIzaSyDB-N7kzdw2Is6vCDVfUw5JsijF45612_o',
+    appId: '1:1073688441768:android:3d4af0448e5805760d239d',
+    messagingSenderId: '1073688441768',
+    projectId: 'delete-8e5f6',
+    storageBucket: 'delete-8e5f6.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCO6elZjD6FZbunPNFWOU4z4Da87-K9k-g',
-    appId: '1:469160305622:ios:1dea6d66ca16fd9b85ba77',
-    messagingSenderId: '469160305622',
-    projectId: 'flutter-pro-firebase-7702e',
-    storageBucket: 'flutter-pro-firebase-7702e.firebasestorage.app',
+    apiKey: 'AIzaSyA6xfWHbpDHiEHCHPVtDgfLmcYkxPq5eAU',
+    appId: '1:1073688441768:ios:6dbd103ba4e07da10d239d',
+    messagingSenderId: '1073688441768',
+    projectId: 'delete-8e5f6',
+    storageBucket: 'delete-8e5f6.firebasestorage.app',
     iosBundleId: 'com.example.flutterassignment',
   );
 
